@@ -1,0 +1,109 @@
+# toml 0.4.0
+
+name        = "Leafee98"
+description = "Welcome to leafee98's site"
+canonical_link = "https://leafee98.com/"
+
+[social]
+name = "Social"
+
+[[social.items]]
+name        = "GitHub"
+permalink   = "https://github.com/leafee98"
+
+[[social.items]]
+name        = "Email"
+description = "***REMOVED***"
+
+[[social.items]]
+name        = "Matrix"
+description = "***REMOVED***"
+
+
+[service]
+name = "Service"
+
+[[service.items]]
+name        = "Blog"
+permalink   = "https://blog.leafee98.com/"
+description = "I blog at here."
+highlight   = true
+
+[[service.items]]
+name        = "Forgejo"
+permalink   = "https://git.leafee98.com/"
+description = "My own git server."
+
+[[service.items]]
+name        = "Woodpecker"
+permalink   = "https://woodpecker.leafee98.com/"
+description = "My own CI/CD service."
+
+[[service.items]]
+name        = "Dufs"
+permalink   = "https://dufs.leafee98.com/"
+description = "A simple webdav server, hosting some public available files."
+
+[[service.items]]
+name        = "Uptime"
+permalink   = "https://uptime.leafee98.com/"
+description = "Service Monitor."
+
+[[service.items]]
+name        = "Plik"
+permalink   = "https://plik.leafee98.com/"
+description = "Temperory file share utility."
+
+[[service.items]]
+name        = "Pasty"
+permalink   = "https://paste.leafee98.com/"
+description = "Temperory text share utility."
+
+[[service.items]]
+name        = "Ntfy"
+permalink   = "https://ntfy.leafee98.com/"
+description = "United Push implemention."
+
+# Personal Service
+[personal_service]
+name = "Personal Service"
+
+[[personal_service.items]]
+name        = "Miniflux"
+permalink   = "https://rss.leafee98.com/"
+description = "My RSS reader."
+
+[[personal_service.items]]
+name        = "Joplin"
+permalink   = "https://joplin.leafee98.com/"
+description = "My notebook sync server."
+
+[[personal_service.items]]
+name        = "Syncthing"
+permalink   = "https://syncthing.leafee98.com/"
+description = "My file syncing agent."
+
+[[personal_service.items]]
+name        = "Radicale"
+permalink   = "https://calendar.leafee98.com/"
+description = "Selfhost calender and task server."
+
+[[personal_service.items]]
+name        = "Matrix"
+permalink   = "https://matrix.leafee98.com/"
+description = "My matrix instance."
+
+[[personal_service.items]]
+name        = "Turn"
+permalink   = "https://turn.leafee98.com/"
+description = "Provide VoIP for matrix."
+
+[[personal_service.items]]
+name        = "Webdav"
+permalink   = "https://webdav.leafee98.com/"
+description = "Webdav endpoint for online storage, powered by apache httpd."
+
+[[personal_service.items]]
+name        = "FileBrowser"
+permalink   = "https://file.leafee98.com/"
+description = "File manager for my online storage."

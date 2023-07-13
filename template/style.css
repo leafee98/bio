@@ -1,0 +1,62 @@
+/* Global config */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+/* main panel */
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  width: 52rem;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+/* section layout */
+
+section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-top: 1.5rem;
+}
+
+section .item_container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, max-content));
+  grid-gap: 0.5rem;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* item layout */
+
+dl {
+  width: 9rem;
+  border: 1px solid;
+  padding: 0.5rem 0.25rem;
+}
+
+/* item text */
+dt, dd {
+  text-align: center;
+}
+
+dt {
+  margin-bottom: 0.5rem;
+}

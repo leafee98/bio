@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+{% macro autoreload() %}
+<script>
+  var uuid = "";
+  function handle_uuid(u) {
+    if (uuid.length === 0) {
+      uuid = u;
+      return;
+    }
+
+    if (uuid != u ) {
+      location.reload();
+    }
+  }
+
+  function autoreload() {
+    fetch("/uuid")
+      .then(res => res.text())
+      .then(handle_uuid);
+  }
+  setInterval(autoreload, 1000);
+</script>
+{% endmacro %}
+
+
+{% macro render_item(name, permalink, description) %}
+{% if permalink is defined %}
+<dl>
+  <dt><a href="{{ permalink | safe }}">{{ name }}</a></dt>
+  {% if description is defined %}
+  <dd>{{ description }}</dd>
+  {% endif %}
+</dl>
+{% else %}
+<dl>
+  <dt><a href="/#">{{ name }}</a></dt>
+  {% if description is defined %}
+  <dd>{{ description }}</dd>
+  {% endif %}
+</dl>
+{% endif %}
+{% endmacro %}
+
+{% macro section(sect) %}
+<section>
+  <h2>{{ sect.name }}</h2>
+
+  <div class="item_container">
+    {% for item in sect.items %}
+    {{ render_item(item.name, item.permalink, item.description) }}
+    {% endfor %}
+  </div>
+</section>
+{% endmacro %}
+
+<html>
+  <head>
+    {% if dev %}
+    {{ autoreload() }}
+    {% endif %}
+
+    <title>{{ name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <link ref="canonical" href="{{canonical_link}}" />
+  </head>
+
+<style>{% include "reset.css" %}</style>
+<style>{% include "style.css" %}</style>
+
+  <body>
+    <main>
+      <div>
+        <h1>{{ name }}</h1>
+        <p>{{ description }}</p>
+      </div>
+
+      {{ section(social) }}
+      {{ section(service) }}
+      {{ section(personal_service) }}
+
+    </main>
+  </body>
+</html>
