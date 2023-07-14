@@ -16,7 +16,7 @@ function main() {
   program
     .option("--serve", "serve the gerneated files")
     .option("--generate", "generate prod ready files")
-    .option("--config <config>", "config file you use, config-sample.toml as example");
+    .option("--config <config>", "config file you use, config-example.toml as example");
   program.parse();
   const options = program.opts();
 
