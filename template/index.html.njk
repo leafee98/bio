@@ -23,6 +23,41 @@
 </script>
 {% endmacro %}
 
+{% macro unhide_func() %}
+<script>
+  function unhide(seed, arr) {
+    seed %= 1000000007;
+    const str_arr = [];
+    for (let i = 0; i < arr.length; i++) {
+      str_arr.push((((arr[i] - seed) % 256) + 256) % 256)
+      seed = seed * seed % 1000000007;
+    }
+
+    const ui8_arr = new Uint8Array(str_arr);
+    const str = new TextDecoder().decode(ui8_arr);
+    console.log(str);
+    return str;
+  }
+
+  function unhide_permalink() {
+    let anchors = document.querySelectorAll("a[hidden_permalink][seed]")
+    for (let anchor of anchors) {
+      let arr = new Array();
+      for (let n of anchor.getAttribute("hidden_permalink").split(",")) {
+        arr.push(Number(n));
+      };
+
+      let seed = Number(anchor.getAttribute("seed"))
+
+      console.log(arr);
+      console.log(seed);
+
+      anchor.href = unhide(seed, arr);
+    }
+  }
+</script>
+{% endmacro %}
+
 
 {% macro render_item(item) %}
 
@@ -31,12 +66,18 @@
 {% set class_str = class_str + " " + "highlight" %}
 {% endif %}
 
-{% set href ="/#" %}
-{% if item.permalink is defined %}
+{% set href = "/#" %}
+{% if item.permalink is defined and not item.hide_permalink %}
 {% set href = item.permalink %}
 {% endif %}
 
-<a class="{{ class_str }}" href="{{ href | safe }}">
+{% set misc_attr = "" %}
+{% if item.hide_permalink %}
+{% set misc_attr = misc_attr + " " + "hidden_permalink=\"" + item.permalink + "\"" %}
+{% set misc_attr = misc_attr + " " + "seed=\"" + item.seed + "\"" %}
+{% endif %}
+
+<a class="{{ class_str }}" href="{{ href | safe }}" {{ misc_attr | safe }}>
   <dl>
     <dt>{{ item.name }}</dt>
     {% if item.description is defined %}
@@ -69,12 +110,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <link ref="canonical" href="{{canonical_link}}" />
+
+    {{ unhide_func() }}
   </head>
 
 <style>{% include "reset.css" %}</style>
 <style>{% include "style.css" %}</style>
 
-  <body>
+  <body onload="unhide_permalink()">
     <main>
       <div class="big_title">
         <h1>{{ name }}</h1>

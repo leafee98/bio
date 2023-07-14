@@ -8,19 +8,19 @@ canonical_link = "https://leafee98.com/"
 name = "Social"
 
 [[section.items]]
-name        = "GitHub"
-permalink   = "https://github.com/leafee98"
-highlight   = true
+name           = "GitHub"
+permalink      = "https://github.com/leafee98"
+highlight      = true
 
 [[section.items]]
-name        = "Email"
-permalink   = "mailto:mail@example.org"
-hide        = true
+name           = "Email"
+permalink      = "mailto:mail@example.org"
+hide_permalink = true
 
 [[section.items]]
-name        = "Matrix"
-permalink   = "https://matrix.to/#/@matrix:example.org"
-hide        = true
+name           = "Matrix"
+permalink      = "https://matrix.to/#/@matrix:example.org"
+hide_permalink = true
 
 [[section]]
 name = "Sites"
