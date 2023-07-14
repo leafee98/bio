@@ -7,22 +7,26 @@ import { v4 as uuidv4 } from "uuid";
 import express from "express";
 
 const url_path      = "/";
-const config_path   = "config.toml";
 const template_dir  = "template/";
 const template_path = "index.html.njk";
 const output_path   = "dist/index.html";
-
+var config_path   = "config.toml";
 
 function main() {
   program
     .option("--serve", "serve the gerneated files")
     .option("--generate", "generate prod ready files")
+    .option("--config <config>", "config file you use, config-sample.toml as example");
   program.parse();
   const options = program.opts();
 
   if (options.serve && options.generate
       || ! (options.serve || options.generate)) {
     program.help();
+  }
+
+  if (options.config) {
+    config_path = options.config;
   }
 
   let config = fs.readFileSync(config_path, {encoding: "utf-8"});
