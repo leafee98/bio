@@ -4,106 +4,109 @@ name        = "Leafee98"
 description = "Welcome to leafee98's site"
 canonical_link = "https://leafee98.com/"
 
-[social]
+[[section]]
 name = "Social"
 
-[[social.items]]
+[[section.items]]
 name        = "GitHub"
 permalink   = "https://github.com/leafee98"
+highlight   = true
 
-[[social.items]]
+[[section.items]]
 name        = "Email"
-description = "***REMOVED***"
+permalink   = "mailto:mail@example.org"
+hide        = true
 
-[[social.items]]
+[[section.items]]
 name        = "Matrix"
-description = "***REMOVED***"
+permalink   = "https://matrix.to/#/@matrix:example.org"
+hide        = true
 
+[[section]]
+name = "Sites"
 
-[service]
-name = "Service"
-
-[[service.items]]
+[[section.items]]
 name        = "Blog"
 permalink   = "https://blog.leafee98.com/"
 description = "I blog at here."
 highlight   = true
 
-[[service.items]]
+[[section.items]]
 name        = "Forgejo"
 permalink   = "https://git.leafee98.com/"
 description = "My own git server."
+highlight   = true
 
-[[service.items]]
+[[section.items]]
 name        = "Woodpecker"
 permalink   = "https://woodpecker.leafee98.com/"
 description = "My own CI/CD service."
 
-[[service.items]]
+[[section.items]]
 name        = "Dufs"
 permalink   = "https://dufs.leafee98.com/"
 description = "A simple webdav server, hosting some public available files."
 
-[[service.items]]
+[[section.items]]
 name        = "Uptime"
 permalink   = "https://uptime.leafee98.com/"
 description = "Service Monitor."
 
-[[service.items]]
+[[section.items]]
 name        = "Plik"
 permalink   = "https://plik.leafee98.com/"
 description = "Temperory file share utility."
 
-[[service.items]]
+[[section.items]]
 name        = "Pasty"
 permalink   = "https://paste.leafee98.com/"
 description = "Temperory text share utility."
 
-[[service.items]]
+[[section.items]]
 name        = "Ntfy"
 permalink   = "https://ntfy.leafee98.com/"
 description = "United Push implemention."
 
-# Personal Service
-[personal_service]
-name = "Personal Service"
-
-[[personal_service.items]]
-name        = "Miniflux"
-permalink   = "https://rss.leafee98.com/"
-description = "My RSS reader."
-
-[[personal_service.items]]
-name        = "Joplin"
-permalink   = "https://joplin.leafee98.com/"
-description = "My notebook sync server."
-
-[[personal_service.items]]
-name        = "Syncthing"
-permalink   = "https://syncthing.leafee98.com/"
-description = "My file syncing agent."
-
-[[personal_service.items]]
-name        = "Radicale"
-permalink   = "https://calendar.leafee98.com/"
-description = "Selfhost calender and task server."
-
-[[personal_service.items]]
-name        = "Matrix"
-permalink   = "https://matrix.leafee98.com/"
-description = "My matrix instance."
-
-[[personal_service.items]]
-name        = "Turn"
-permalink   = "https://turn.leafee98.com/"
-description = "Provide VoIP for matrix."
-
-[[personal_service.items]]
-name        = "Webdav"
-permalink   = "https://webdav.leafee98.com/"
-description = "Webdav endpoint for online storage, powered by apache httpd."
-
-[[personal_service.items]]
-name        = "FileBrowser"
-permalink   = "https://file.leafee98.com/"
-description = "File manager for my online storage."
+# # Personal Service
+# [personal_service]
+# name = "Personal Service"
+# 
+# [[personal_service.items]]
+# name        = "Miniflux"
+# permalink   = "https://rss.leafee98.com/"
+# description = "My RSS reader."
+# 
+# [[personal_service.items]]
+# name        = "Joplin"
+# permalink   = "https://joplin.leafee98.com/"
+# description = "My notebook sync server."
+# 
+# [[personal_service.items]]
+# name        = "Syncthing"
+# permalink   = "https://syncthing.leafee98.com/"
+# description = "My file syncing agent."
+# 
+# [[personal_service.items]]
+# name        = "Radicale"
+# permalink   = "https://calendar.leafee98.com/"
+# description = "Selfhost calender and task server."
+# 
+# [[personal_service.items]]
+# name        = "Matrix"
+# permalink   = "https://matrix.leafee98.com/"
+# description = "My matrix instance."
+# 
+# [[personal_service.items]]
+# name        = "Turn"
+# permalink   = "https://turn.leafee98.com/"
+# description = "Provide VoIP for matrix."
+# 
+# [[personal_service.items]]
+# name        = "Webdav"
+# permalink   = "https://webdav.leafee98.com/"
+# description = "Webdav endpoint for online storage, powered by apache httpd."
+# 
+# [[personal_service.items]]
+# name        = "FileBrowser"
+# permalink   = "https://file.leafee98.com/"
+# description = "File manager for my online storage."

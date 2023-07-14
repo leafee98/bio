@@ -24,31 +24,36 @@
 {% endmacro %}
 
 
-{% macro render_item(name, permalink, description) %}
-{% if permalink is defined %}
-<dl>
-  <dt><a href="{{ permalink | safe }}">{{ name }}</a></dt>
-  {% if description is defined %}
-  <dd>{{ description }}</dd>
-  {% endif %}
-</dl>
-{% else %}
-<dl>
-  <dt><a href="/#">{{ name }}</a></dt>
-  {% if description is defined %}
-  <dd>{{ description }}</dd>
-  {% endif %}
-</dl>
+{% macro render_item(item) %}
+
+{% set class_str = "item" %}
+{% if item.highlight %}
+{% set class_str = class_str + " " + "highlight" %}
 {% endif %}
+
+{% set href ="/#" %}
+{% if item.permalink is defined %}
+{% set href = item.permalink %}
+{% endif %}
+
+<a class="{{ class_str }}" href="{{ href | safe }}">
+  <dl>
+    <dt>{{ item.name }}</dt>
+    {% if item.description is defined %}
+    <dd>{{ item.description }}</dd>
+    {% endif %}
+  </dl>
+</a>
+
 {% endmacro %}
 
-{% macro section(sect) %}
+{% macro render_section(sect) %}
 <section>
   <h2>{{ sect.name }}</h2>
 
   <div class="item_container">
     {% for item in sect.items %}
-    {{ render_item(item.name, item.permalink, item.description) }}
+    {{ render_item(item) }}
     {% endfor %}
   </div>
 </section>
@@ -71,14 +76,14 @@
 
   <body>
     <main>
-      <div>
+      <div class="big_title">
         <h1>{{ name }}</h1>
         <p>{{ description }}</p>
       </div>
 
-      {{ section(social) }}
-      {{ section(service) }}
-      {{ section(personal_service) }}
+      {% for s in section %}
+      {{ render_section(s) }}
+      {% endfor %}
 
     </main>
   </body>
