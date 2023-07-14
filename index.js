@@ -80,7 +80,7 @@ function serve(config, nunjucks_env) {
 function generate(config, nunjucks_env) {
   const rendered = nunjucks_env.render(template_path, config);
   if (! fs.existsSync(path.dirname(output_path))) {
-    fs.mkdirSync(fs.dirname(output_path), { recursive: true });
+    fs.mkdirSync(path.dirname(output_path), { recursive: true });
   }
   fs.writeFileSync(output_path, rendered);
 }
